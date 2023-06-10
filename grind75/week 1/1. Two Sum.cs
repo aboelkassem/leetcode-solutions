@@ -1,18 +1,18 @@
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         
-        int[] result = new int[2];
+        var result = new int[2];
         for (int i = 0; i < nums.Length; i++)
         {
-            for (int j = 0; j < nums.Length; j++)
+            for (int j = i; j < nums.Length; j++)
             {
-                if (nums[j] == target - nums[i])
+                if (nums[i] + nums[j] == target && i != j)
                 {
-                    result[0] = i;
-                    result[1] = j;
+                    result = new int[] { i, j };
                 }
             }
         }
+
         return result;
     }
 }
