@@ -7,9 +7,7 @@ public class Solution {
             for (int j = i; j < nums.Length; j++)
             {
                 if (nums[i] + nums[j] == target && i != j)
-                {
                     result = new int[] { i, j };
-                }
             }
         }
 
