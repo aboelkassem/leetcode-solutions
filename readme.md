@@ -1,4 +1,5 @@
 # LeetCode Solutions in C#
+
 This repository contains my solutions to various LeetCode problems in C#. Each solution is implemented in a separate C# class file and follows the naming convention `ProblemName.cs`.
 
 ## Usage
