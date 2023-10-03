@@ -10,7 +10,7 @@ public class Solution {
         {
             if (set.Contains(num))
                 return true;
-                
+
             set.Add(num);
         }
         return false;
