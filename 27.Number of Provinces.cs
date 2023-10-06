@@ -11,7 +11,7 @@ public class Solution {
         var counter = 0;
         for (int i = 0; i < isConnected.Length; i++)
         {
-            // Check Connected Component 
+            // Check Connected Component
             if (!vis[i])
             {
                 counter++;
@@ -21,7 +21,7 @@ public class Solution {
 
         return counter;
     }
-    
+
     // Traverse Graph and consider one province (connected component)
     public static void Traverse(int cur, ref int[][] isConnected, ref bool[] vis)
     {
