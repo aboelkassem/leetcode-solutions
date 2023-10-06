@@ -1,21 +1,21 @@
 // Link: https://leetcode.com/problems/number-of-provinces
 
 // Using DFS
-// Time: O(n)
-// Space: O(n)
+// Time: O(n) => 2n = vertices + edges 
+// Space: O(n^2)
 
 public class Solution {
     public int FindCircleNum(int[][] isConnected) {
-        var vis = new bool[isConnected.Length];
+        var visited = new bool[isConnected.Length];
 
         var counter = 0;
         for (int i = 0; i < isConnected.Length; i++)
         {
             // Check Connected Component 
-            if (!vis[i])
+            if (!visited[i])
             {
                 counter++;
-                Traverse(i, ref isConnected, ref vis);
+                Traverse(i, ref isConnected, ref visited);
             }
         }
 
@@ -23,15 +23,15 @@ public class Solution {
     }
     
     // Traverse Graph and consider one province (connected component)
-    public static void Traverse(int cur, ref int[][] isConnected, ref bool[] vis)
+    public static void Traverse(int cur, ref int[][] isConnected, ref bool[] visited)
     {
         // DFS Traverse
-        vis[cur] = true;
+        visited[cur] = true;
         for (int next = 0; next < isConnected.Length; next++)
         {
-            if (isConnected[cur][next] == 1 && !vis[next])
+            if (isConnected[cur][next] == 1 && !visited[next])
             {
-                Traverse(next, ref isConnected, ref vis);
+                Traverse(next, ref isConnected, ref visited);
             }
         }
     }
