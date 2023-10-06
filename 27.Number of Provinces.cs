@@ -1,7 +1,7 @@
 // Link: https://leetcode.com/problems/number-of-provinces
 
 // Using DFS
-// Time: O(n) => 2n = vertices + edges 
+// Time: O(n) => 2n = vertices + edges
 // Space: O(n^2)
 
 public class Solution {
@@ -11,7 +11,7 @@ public class Solution {
         var counter = 0;
         for (int i = 0; i < isConnected.Length; i++)
         {
-            // Check Connected Component 
+            // Check Connected Component
             if (!visited[i])
             {
                 counter++;
@@ -21,7 +21,7 @@ public class Solution {
 
         return counter;
     }
-    
+
     // Traverse Graph and consider one province (connected component)
     public static void Traverse(int cur, ref int[][] isConnected, ref bool[] visited)
     {
