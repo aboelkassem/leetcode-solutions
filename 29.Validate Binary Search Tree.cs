@@ -17,25 +17,23 @@
  * }
  */
 public class Solution {
-    public bool IsValidBST(TreeNode root) {
-        // Using In-order traversal
-        var orderedList = new List<int>();
-        InOrderTraversal(root, ref orderedList);
+  public bool IsValidBST(TreeNode root) {
+    // Using In-order traversal
+    var orderedList = new List<int>();
+    InOrderTraversal(root, ref orderedList);
 
-        for (int i = 1; i <= orderedList.Count - 1; i++)
-        {
-            if (orderedList[i-1] >= orderedList[i])
-                return false;
-        }
-        return true;
+    for (int i = 1; i <= orderedList.Count - 1; i++) {
+      if (orderedList[i - 1] >= orderedList[i])
+        return false;
     }
+    return true;
+  }
 
-    private static void InOrderTraversal(TreeNode root, ref List<int> ordered)
-    {
-        if (root == null)
-            return;
-        InOrderTraversal(root.left, ref ordered);
-        ordered.Add(root.val);
-        InOrderTraversal(root.right, ref ordered);
-    }
+  private static void InOrderTraversal(TreeNode root, ref List<int> ordered) {
+    if (root == null)
+      return;
+    InOrderTraversal(root.left, ref ordered);
+    ordered.Add(root.val);
+    InOrderTraversal(root.right, ref ordered);
+  }
 }
