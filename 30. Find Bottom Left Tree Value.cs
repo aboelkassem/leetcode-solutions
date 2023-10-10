@@ -17,28 +17,26 @@
  * }
  */
 public class Solution {
-    public int FindBottomLeftValue(TreeNode root) {
-        // BFS
-        var queue = new Queue<TreeNode>();
-        queue.Enqueue(root);
-        var result = root.val;
-        while (queue.Count > 0)
-        {
-            // size = queue.Count is current level
-            var size = queue.Count;
-            for (int i = 0; i < size; i++)
-            {
-                var cur = queue.Dequeue();
-                if (i == 0) // first element (leftmost node) in current level
-                    result = cur.val; // always will be the leftmost node
+  public int FindBottomLeftValue(TreeNode root) {
+    // BFS
+    var queue = new Queue<TreeNode>();
+    queue.Enqueue(root);
+    var result = root.val;
+    while (queue.Count > 0) {
+      // size = queue.Count is current level
+      var size = queue.Count;
+      for (int i = 0; i < size; i++) {
+        var cur = queue.Dequeue();
+        if (i == 0)         // first element (leftmost node) in current level
+          result = cur.val; // always will be the leftmost node
 
-                if (cur.left != null)
-                    queue.Enqueue(cur.left);
-                if (cur.right != null)
-                    queue.Enqueue(cur.right);
-            }
-        }
-        // get last element
-        return result;
+        if (cur.left != null)
+          queue.Enqueue(cur.left);
+        if (cur.right != null)
+          queue.Enqueue(cur.right);
+      }
     }
+    // get last element
+    return result;
+  }
 }
