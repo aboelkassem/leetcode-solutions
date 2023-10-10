@@ -18,7 +18,7 @@
  */
 public class Solution {
     public int FindBottomLeftValue(TreeNode root) {
-       // BFS
+        // BFS
         var queue = new Queue<TreeNode>();
         queue.Enqueue(root);
         var result = root.val;
