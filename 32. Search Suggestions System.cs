@@ -99,9 +99,9 @@ public class Trie
                 prefix += c;
                 SuggestTopThree(cur.children[c], prefix, ref result);
                 // backtrack // remove last character // latest added character
-                // we just try with each possible character 
-                // because we didn't want to add it to prefix permanently 
-                prefix = prefix.Remove(prefix.Length - 1); 
+                // we just try with each possible character
+                // because we didn't want to add it to prefix permanently
+                prefix = prefix.Remove(prefix.Length - 1);
             }
         }
     }

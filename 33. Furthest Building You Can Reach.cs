@@ -1,7 +1,7 @@
 // Link: https://leetcode.com/problems/furthest-building-you-can-reach
 
 
-// Time: O(n) 
+// Time: O(n)
 // Space: O(n)
 
 public class Solution {
