@@ -1,5 +1,9 @@
 // Link: https://leetcode.com/problems/search-suggestions-system
 
+
+// Time: O(n) where n is the length of the word
+// Space: O(n) where n is the length of the word (in worst case if empty and will add all word characters)
+
 public class Solution {
     public IList<IList<string>> SuggestedProducts(string[] products, string searchWord) {
         var trie = new Trie();
