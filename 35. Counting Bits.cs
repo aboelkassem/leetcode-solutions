@@ -14,7 +14,7 @@ public class Solution {
             // reuse the previous result
             result[i] = result[i / 2] + i % 2;
         }
-        
+
         return result;
     }
 }
@@ -30,7 +30,7 @@ public class Solution {
         {
             int count = 0;
             int num = i;
-                    // loop bits
+            // loop bits
             while (num > 0)
             {
                 // mod 2 and divide by 2 to get binary representation
