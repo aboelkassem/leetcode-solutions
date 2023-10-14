@@ -3,7 +3,7 @@
 // Time: O(n)
 // Space: O(n)
 
-// using two pointers and greedy algorithm 
+// using two pointers and greedy algorithm
 public class Solution {
     public int MaxArea(int[] height) {
         var maxArea = 0;
@@ -14,7 +14,7 @@ public class Solution {
         {
             // area = height (minimum) * width (distance between two pointers)
             var currArea = Math.Min(height[left], height[right]) * (right - left);
-						// update max area
+            // update max area
             maxArea = Math.Max(maxArea, currArea);
 
             if (height[left] < height[right])
@@ -23,6 +23,6 @@ public class Solution {
                 right--;
         }
 
-        return maxArea;   
+        return maxArea;
     }
 }
