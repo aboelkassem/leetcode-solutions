@@ -18,7 +18,7 @@ public class Solution {
         // return 1 if solution is valid and 0 if solution is invalid
         if (remain == 0)
             return 1;
-        
+
         if (remain < 0 || index >= coins.Length)
             return 0;
 
