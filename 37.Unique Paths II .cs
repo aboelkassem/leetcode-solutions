@@ -1,7 +1,7 @@
 // Link: https://leetcode.com/problems/unique-paths-ii
 
-// Time: O(n)
-// Space: O(n)
+// Time: O(m * n)
+// Space: O(m * n)
 
 // using dynamic programming
 public class Solution {
