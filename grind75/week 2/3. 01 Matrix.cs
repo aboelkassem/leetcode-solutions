@@ -22,9 +22,9 @@ public class Solution {
                 else
                 {
                     // Check left and top neighbors
-                    if (i > 0) 
+                    if (i > 0)
                         result[i][j] = Math.Min(result[i][j], result[i - 1][j] + 1);
-                    if (j > 0) 
+                    if (j > 0)
                         result[i][j] = Math.Min(result[i][j], result[i][j - 1] + 1);
                 }
             }
@@ -35,9 +35,9 @@ public class Solution {
             for (int j = cols - 1; j >= 0; j--)
             {
                 // Check right and bottom neighbors
-                if (i < rows - 1) 
+                if (i < rows - 1)
                     result[i][j] = Math.Min(result[i][j], result[i + 1][j] + 1);
-                if (j < cols - 1) 
+                if (j < cols - 1)
                     result[i][j] = Math.Min(result[i][j], result[i][j + 1] + 1);
             }
         }
