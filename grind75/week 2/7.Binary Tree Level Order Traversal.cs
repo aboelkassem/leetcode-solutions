@@ -17,36 +17,34 @@
  * }
  */
 public class Solution {
-    public IList<IList<int>> LevelOrder(TreeNode root) {
-        // using BFS
-        var result = new List<IList<int>>();
+  public IList<IList<int>> LevelOrder(TreeNode root) {
+    // using BFS
+    var result = new List<IList<int>>();
 
-        if (root == null)
-            return result;
+    if (root == null)
+      return result;
 
-        var queue = new Queue<TreeNode>();
-        queue.Enqueue(root);
-        while (queue.Count > 0)
-        {
-            // size = queue.Count is current level
-            var size = queue.Count;
-            var list = new List<int>();
-            for (int i = 0; i < size; i++)
-            {
-                var cur = queue.Dequeue();
+    var queue = new Queue<TreeNode>();
+    queue.Enqueue(root);
+    while (queue.Count > 0) {
+      // size = queue.Count is current level
+      var size = queue.Count;
+      var list = new List<int>();
+      for (int i = 0; i < size; i++) {
+        var cur = queue.Dequeue();
 
-                list.Add(cur.val); // always will be the leftmost node
+        list.Add(cur.val); // always will be the leftmost node
 
-                if (cur.left != null)
-                    queue.Enqueue(cur.left);
+        if (cur.left != null)
+          queue.Enqueue(cur.left);
 
-                if (cur.right != null)
-                    queue.Enqueue(cur.right);
-            }
+        if (cur.right != null)
+          queue.Enqueue(cur.right);
+      }
 
-            result.Add(list);
-        }
-
-        return result;
+      result.Add(list);
     }
+
+    return result;
+  }
 }
