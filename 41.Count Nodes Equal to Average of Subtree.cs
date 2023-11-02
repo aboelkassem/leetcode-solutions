@@ -18,80 +18,74 @@
  * }
  */
 public class Solution {
-    public int AverageOfSubtree(TreeNode root) {
-        var result = 0;
-        AverageOfSubtreeDfs(root, ref result);
-        return result;
-    }
+  public int AverageOfSubtree(TreeNode root) {
+    var result = 0;
+    AverageOfSubtreeDfs(root, ref result);
+    return result;
+  }
 
-    (int sum, int count) AverageOfSubtreeDfs(TreeNode node, ref int result)
-    {
-        if (node == null)
-            return (sum: 0, count: 0);
+  (int sum, int count) AverageOfSubtreeDfs(TreeNode node, ref int result) {
+    if (node == null)
+      return (sum: 0, count: 0);
 
-        var (sumL, countL) = AverageOfSubtreeDfs(node.left, ref result);
-        var (sumR, countR) = AverageOfSubtreeDfs(node.right, ref result);
+    var (sumL, countL) = AverageOfSubtreeDfs(node.left, ref result);
+    var (sumR, countR) = AverageOfSubtreeDfs(node.right, ref result);
 
-        var sumN = sumL + sumR + node.val;
-        var countN = countL + countR + 1;
-        var avgN = sumN / countN;
+    var sumN = sumL + sumR + node.val;
+    var countN = countL + countR + 1;
+    var avgN = sumN / countN;
 
-        if (avgN == node.val)
-            result++;
+    if (avgN == node.val)
+      result++;
 
-        return (sumN, countN);
-    }
+    return (sumN, countN);
+  }
 }
 
 // Using DFS Stack
 // Time: O(n)
 // Space: O(n)
 
-public static int AverageOfSubtree(TreeNode root)
-{
-    Stack<TreeNode> stack = new(new TreeNode[] { root });
-    Dictionary<TreeNode, int[]> dict = new();
-    int count = 0;
+public static int AverageOfSubtree(TreeNode root) {
+  Stack<TreeNode> stack = new(new TreeNode[] { root });
+  Dictionary<TreeNode, int[]> dict = new();
+  int count = 0;
 
-    while (stack.Count > 0)
-    {
-        TreeNode node = stack.Peek();
+  while (stack.Count > 0) {
+    TreeNode node = stack.Peek();
 
-        if (node.left != null && !dict.ContainsKey(node.left))
-        {
-            stack.Push(node.left);
-            continue;
-        }
-
-        if (node.right != null && !dict.ContainsKey(node.right))
-        {
-            stack.Push(node.right);
-            continue;
-        }
-
-        int leftSum = 0, numOfLeftNodes = 0, rightSum = 0, numOfRightNodes = 0;
-
-        if (node.left != null)
-        {
-            leftSum = dict[node.left][0];
-            numOfLeftNodes = dict[node.left][1];
-            dict.Remove(node.left);
-        }
-
-        if (node.right != null)
-        {
-            rightSum = dict[node.right][0];
-            numOfRightNodes = dict[node.right][1];
-            dict.Remove(node.right);
-        }
-
-        dict[node] = new int[] { node.val + leftSum + rightSum, 1 + numOfLeftNodes + numOfRightNodes };
-
-        if ((dict[node][0] / dict[node][1]) == node.val)
-            count++;
-
-        stack.Pop();
+    if (node.left != null && !dict.ContainsKey(node.left)) {
+      stack.Push(node.left);
+      continue;
     }
 
-    return count;
+    if (node.right != null && !dict.ContainsKey(node.right)) {
+      stack.Push(node.right);
+      continue;
+    }
+
+    int leftSum = 0, numOfLeftNodes = 0, rightSum = 0, numOfRightNodes = 0;
+
+    if (node.left != null) {
+      leftSum = dict[node.left][0];
+      numOfLeftNodes = dict[node.left][1];
+      dict.Remove(node.left);
+    }
+
+    if (node.right != null) {
+      rightSum = dict[node.right][0];
+      numOfRightNodes = dict[node.right][1];
+      dict.Remove(node.right);
+    }
+
+    dict[node] = new int[] { node.val + leftSum + rightSum,
+                             1 + numOfLeftNodes + numOfRightNodes };
+
+    if ((dict[node][0] / dict[node][1]) == node.val)
+      count++;
+
+    stack.Pop();
+  }
+
+  return count;
 }
