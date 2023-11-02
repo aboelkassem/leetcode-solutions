@@ -7,9 +7,9 @@
 public class Solution {
     public int EvalRPN(string[] tokens) {
         // special case
-        if (tokens.Length == 1) 
+        if (tokens.Length == 1)
             return Convert.ToInt32(tokens[0]);
-            
+
         var result = 0;
 
         var stack = new Stack<int>();
