@@ -9,13 +9,13 @@ public class Solution {
         var preMap = new Dictionary<int, List<int>>();//setup a map-- map will store course and all its prereq
 
         // initilaize map with number of courses - #nodes(graph) and list is empty
-        for(int i = 0; i <numCourses; i++){
+        for(int i = 0; i <numCourses; i++) {
             preMap[i]= new List<int>();
         }
 
         //Add pre req for each course in map-- pre req can be a list
         // c->a,b
-        foreach(var pair in prerequisites){
+        foreach(var pair in prerequisites) {
             int crs = pair[0];
             int pre= pair[1];
 
@@ -24,19 +24,19 @@ public class Solution {
         // creating set to check if there are any loops.. if there is a loop means course is already added in set --> return false
         var visited = new HashSet<int>();
 
-        bool DFS(int crs){
-            if(visited.Contains(crs)){
-                return false;               
+        bool DFS(int crs) {
+            if(visited.Contains(crs)) {
+                return false;
             }
             // for a particular course there is no pre req -- mark the value as 0
-            if(preMap[crs].Count == 0){
+            if(preMap[crs].Count == 0) {
                 return true;
             }
             // start with current node and add to the set
             visited.Add(crs);
             // for all its pre req (values from hashmap ) run the DFS
-            foreach(int p in preMap[crs]){
-                if(!DFS(p)){
+            foreach(int p in preMap[crs]) {
+                if(!DFS(p)) {
                     return false;
                 }
             }
@@ -50,8 +50,8 @@ public class Solution {
         // we will do this for each node , because graph can be disconnect
         // 1->2
         // 3->4
-        for(int c = 0 ; c< numCourses; c++){
-            if(!DFS(c)){
+        for(int c = 0 ; c< numCourses; c++) {
+            if(!DFS(c)) {
                 return false;
             }
         }
