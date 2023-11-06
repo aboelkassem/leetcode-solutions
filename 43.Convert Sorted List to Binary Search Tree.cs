@@ -27,28 +27,26 @@
  * }
  */
 public class Solution {
-    public TreeNode SortedListToBST(ListNode head) {
-        // instead of traversing each time to get middle element,
-        // we can use list to get the middle element in O(1)
-        var list = new List<int>();
-        while (head != null)
-        {
-            list.Add(head.val);
-            head = head.next;
-        }
-
-        TreeNode bisect(int start, int end)
-        {
-            if (start > end)
-                return null;
-
-            var mid = (start + end) / 2;
-            var node = new TreeNode(list[mid]);
-            node.left = bisect(start, mid - 1);
-            node.right = bisect(mid + 1, end);
-            return node;
-        }
-
-        return bisect(0, list.Count - 1);
+  public TreeNode SortedListToBST(ListNode head) {
+    // instead of traversing each time to get middle element,
+    // we can use list to get the middle element in O(1)
+    var list = new List<int>();
+    while (head != null) {
+      list.Add(head.val);
+      head = head.next;
     }
+
+    TreeNode bisect(int start, int end) {
+      if (start > end)
+        return null;
+
+      var mid = (start + end) / 2;
+      var node = new TreeNode(list[mid]);
+      node.left = bisect(start, mid - 1);
+      node.right = bisect(mid + 1, end);
+      return node;
+    }
+
+    return bisect(0, list.Count - 1);
+  }
 }
