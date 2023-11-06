@@ -1,7 +1,7 @@
 // Link: https://leetcode.com/problems/reverse-linked-list-ii
 
 // Time: O(n)
-// Space: O(h)
+// Space: O(n)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
