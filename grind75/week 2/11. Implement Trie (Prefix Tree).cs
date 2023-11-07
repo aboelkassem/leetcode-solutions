@@ -1,76 +1,63 @@
 // Link: https://leetcode.com/problems/implement-trie-prefix-tree
 
 // Time: O(n) where n is the length of the word
-// Space: O(n) where n is the length of the word (in worst case if empty and will add all word characters)
+// Space: O(n) where n is the length of the word (in worst case if empty and
+// will add all word characters)
 
-public class TrieNode
-{
-    public bool isWord;
-    public Dictionary<char, TrieNode> children;
-    public TrieNode()
-    {
-        this.children = new();
-    }
+public class TrieNode {
+  public bool isWord;
+  public Dictionary<char, TrieNode> children;
+  public TrieNode() { this.children = new(); }
 }
 
-public class Trie
-{
-    private TrieNode root;
-    public Trie()
-    {
-        this.root = new TrieNode();
+public class Trie {
+  private TrieNode root;
+  public Trie() { this.root = new TrieNode(); }
+
+  public void Insert(string word) {
+    TrieNode cur = this.root;
+
+    for (int i = 0; i < word.Length; i++) {
+      char c = word[i];
+
+      if (!cur.children.ContainsKey(c))
+        cur.children.Add(c, new TrieNode());
+
+      cur = cur.children[c]; // continue traversal
     }
 
-    public void Insert(string word)
-    {
-        TrieNode cur = this.root;
+    cur.isWord = true;
+  }
 
-        for (int i = 0; i < word.Length; i++)
-        {
-            char c = word[i];
+  public bool Search(string word) {
+    TrieNode cur = this.root;
 
-            if (!cur.children.ContainsKey(c))
-                cur.children.Add(c, new TrieNode());
+    for (int i = 0; i < word.Length; i++) {
+      char c = word[i];
 
-            cur = cur.children[c]; // continue traversal
-        }
+      if (!cur.children.ContainsKey(c))
+        return false;
 
-        cur.isWord = true;
+      cur = cur.children[c]; // continue traversal
     }
 
-    public bool Search(string word)
-    {
-        TrieNode cur = this.root;
+    return cur.isWord; // if exist and is word
+  }
 
-        for (int i = 0; i < word.Length; i++)
-        {
-            char c = word[i];
+  public bool StartsWith(string prefix) {
+    TrieNode cur = this.root;
 
-            if (!cur.children.ContainsKey(c))
-                return false;
+    for (int i = 0; i < prefix.Length; i++) {
+      char c = prefix[i];
 
-            cur = cur.children[c]; // continue traversal
-        }
+      if (!cur.children.ContainsKey(c))
+        return false;
 
-        return cur.isWord; // if exist and is word
+      cur = cur.children[c]; // continue traversal
     }
 
-    public bool StartsWith(string prefix)
-    {
-        TrieNode cur = this.root;
-
-        for (int i = 0; i < prefix.Length; i++)
-        {
-            char c = prefix[i];
-
-            if (!cur.children.ContainsKey(c))
-                return false;
-
-            cur = cur.children[c]; // continue traversal
-        }
-
-        return true; // if exist only
-    }
+    return true; // if exist only
+  }
 }
 
 /**
