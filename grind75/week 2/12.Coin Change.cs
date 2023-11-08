@@ -9,7 +9,7 @@ public int CoinChange(int[] coins, int amount)
     // build dp array to store minimum number of coins
     var dp = new int[amount + 1];
     Array.Fill(dp, int.MaxValue - 1);
-    
+
     // base case
     dp[0] = 0;
 
