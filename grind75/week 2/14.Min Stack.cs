@@ -3,8 +3,14 @@
 // Time: O(1)
 // Space: O(n)
 public class MinStack {
-    public Stack<int> _stack { get; set; }
-    public Stack<int> minStack { get; set; }
+    public Stack<int> _stack {
+        get;
+        set;
+    }
+    public Stack<int> minStack {
+        get;
+        set;
+    }
 
     public MinStack()
     {
