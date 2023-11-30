@@ -7,7 +7,7 @@
 public int Search(int[] nums, int target)
 {
     int left = 0, right = nums.Length - 1;
-    while (left <= right) 
+    while (left <= right)
     {
         //int mid = (left + right) / 2;
         var mid = left + (right - left) / 2;
