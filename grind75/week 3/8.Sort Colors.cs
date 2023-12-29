@@ -40,20 +40,20 @@ public void SortColors(int[] nums)
     {
         switch (nums[one])
         {
-            case 0:
-                (nums[zero], nums[one]) = (nums[one], nums[zero]); // Swap
-                zero++;
-                one++;
-                break;
-            
-            case 1:
-                one++;
-                break;
+        case 0:
+            (nums[zero], nums[one]) = (nums[one], nums[zero]); // Swap
+            zero++;
+            one++;
+            break;
 
-            case 2:
-                (nums[one], nums[two]) = (nums[two], nums[one]); // Swap
-                two--;
-                break;
+        case 1:
+            one++;
+            break;
+
+        case 2:
+            (nums[one], nums[two]) = (nums[two], nums[one]); // Swap
+            two--;
+            break;
         }
     }
 }
