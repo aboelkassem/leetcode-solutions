@@ -6,23 +6,23 @@
 public class Solution {
     public IList<IList<int>> Subsets(int[] nums) {
         IList<IList<int>> subsets = new List<IList<int>>
-				{
-				    new List<int>()
-				};
-				
-				for (int i = 0; i < nums.Length; i++)
-				{
-						// previous subsets
-				    int count = subsets.Count;
-				    for (int j = 0; j < count; j++)
-				    {
-								// create a new subset from the existing subset and add the current element to it
-				        var temp = subsets[j].ToList();
-				        temp.Add(nums[i]);
-				        subsets.Add(temp);
-				    }
-				}
-				return subsets;
+        {
+            new List<int>()
+        };
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            // previous subsets
+            int count = subsets.Count;
+            for (int j = 0; j < count; j++)
+            {
+                // create a new subset from the existing subset and add the current element to it
+                var temp = subsets[j].ToList();
+                temp.Add(nums[i]);
+                subsets.Add(temp);
+            }
+        }
+        return subsets;
     }
 }
 
