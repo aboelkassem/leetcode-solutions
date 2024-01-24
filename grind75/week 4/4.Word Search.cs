@@ -20,7 +20,7 @@ public class Solution {
 
             // out of bound  -- invalid condition
             if (r < 0 || c < 0 ||
-                r >= rowsLength || c >= colsLength)
+                    r >= rowsLength || c >= colsLength)
                 return false;
 
             // wrong character or visited position before -- invalid condition
@@ -31,11 +31,11 @@ public class Solution {
 
             // options
             var result = (
-                DFS(r + 1, c, curIdx + 1) ||
-                DFS(r - 1, c, curIdx + 1) ||
-                DFS(r, c + 1, curIdx + 1) ||
-                DFS(r, c - 1, curIdx + 1) 
-                );
+                             DFS(r + 1, c, curIdx + 1) ||
+                             DFS(r - 1, c, curIdx + 1) ||
+                             DFS(r, c + 1, curIdx + 1) ||
+                             DFS(r, c - 1, curIdx + 1)
+                         );
 
             path.Remove((r, c));
             return result;
