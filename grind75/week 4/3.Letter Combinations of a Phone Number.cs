@@ -14,7 +14,7 @@ public class Solution {
     public IList<string> LetterCombinations(string digits) {
         List<string> combinations = new();
 
-        void Traverse(int index, string curStr){
+        void Traverse(int index, string curStr) {
 
             // base case, a combination found
             if (curStr.Length == digits.Length)
