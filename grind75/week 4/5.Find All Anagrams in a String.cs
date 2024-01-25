@@ -20,7 +20,7 @@ public class Solution {
         var window = k.ToString();
         var countWindow = CountCharacter(window);
 
-        if (IsAnagram(countP, countWindow)) 
+        if (IsAnagram(countP, countWindow))
             res.Add(0);
 
         //Sliding Window
@@ -31,7 +31,7 @@ public class Solution {
             countWindow[window[m] - 'a']++; // m = windowEnd => add one on last element
             countWindow[window[0] - 'a']--; // minus one from frist element
             window = window.Remove(0, 1);
-            if (IsAnagram(countP, countWindow)) 
+            if (IsAnagram(countP, countWindow))
                 res.Add(i - m + 1);
         }
 
